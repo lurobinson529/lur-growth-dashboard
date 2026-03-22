@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-22T02:45:45.328Z",
+  "lastUpdated": "2026-03-22T03:05:57.860Z",
   "updatedBy": "Elara",
   "tasks": [
     {
@@ -232,9 +232,189 @@
       "assignee": "LaToya",
       "priority": "high",
       "due": "2026-03-13"
+    },
+    {
+      "id": "tmn16d2shv1i",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Revenue Floor Analysis - Week of March 10",
+      "description": "Calculate current monthly revenue run rate, identify gap to $15K floor, and model scenarios for closing the gap before Client B engagement ends",
+      "department": "finance",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-11"
+    },
+    {
+      "id": "tmn16d2sk31f",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Client A Phase 2 Readiness Assessment",
+      "description": "Evaluate Client A's progress at Month 2 mark, document Phase 1 wins, and prepare Phase 2 introduction framework for LaToya to present",
+      "department": "client-operations",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-12"
+    },
+    {
+      "id": "tmn16d2skfx3",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Backfill Pipeline Prospect Research",
+      "description": "Identify 15 qualified nonprofits matching ICP criteria ($750K-$3M budget, small teams, execution-ready) to replace ending $10K engagement revenue",
+      "department": "research",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-13"
+    },
+    {
+      "id": "tmn16d2sksmj",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Strategic Impact Execution Outreach Sequence",
+      "description": "Draft personalized outreach messages for top 5 prospects focusing on capacity-building infrastructure and Storm Scale positioning",
+      "department": "business-development",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-14"
+    },
+    {
+      "id": "tmn16d2skmhn",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "LinkedIn Content Calendar - Infrastructure Theme",
+      "description": "Create 3 LinkedIn posts focusing on nonprofit infrastructure challenges, include Storm Scale references and client success indicators",
+      "department": "content",
+      "assignee": "Elara",
+      "priority": "medium",
+      "due": "2026-03-15"
+    },
+    {
+      "id": "tmn16d2sk8nu",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Client B Transition Strategy",
+      "description": "Review Client B engagement status, document deliverables completed, and prepare closeout process with potential retainer conversion assessment",
+      "department": "client-operations",
+      "assignee": "Elara",
+      "priority": "medium",
+      "due": "2026-03-13"
+    },
+    {
+      "id": "tmn16d2sk9kf",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Phase 2 Introduction Call with Client A",
+      "description": "Present Phase 2 Systems Embedding opportunity based on Phase 1 progress, discuss $24K investment and timeline alignment",
+      "department": "business-development",
+      "assignee": "LaToya",
+      "priority": "high",
+      "due": "2026-03-14"
+    },
+    {
+      "id": "tmn16d2skcda",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Discovery Calls with Top 3 Prospects",
+      "description": "Conduct Strategic Impact Execution qualification calls, assess Storm Scale category, and present Phase 1 framework",
+      "department": "business-development",
+      "assignee": "LaToya",
+      "priority": "high",
+      "due": "2026-03-16"
+    },
+    {
+      "id": "tmn16d2sk74i",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Weekly Revenue Dashboard Update",
+      "description": "Update pipeline tracking, client payment status, and 90-day revenue projections to monitor progress against $1M target",
+      "department": "finance",
+      "assignee": "Elara",
+      "priority": "medium",
+      "due": "2026-03-16"
+    },
+    {
+      "id": "tmn16d2skwu5",
+      "created": "2026-03-22",
+      "status": "todo",
+      "title": "Retainer Prospect Qualification",
+      "description": "Identify and research 5 potential Regenerative Leadership Retainer prospects from existing network who need ongoing strategic support",
+      "department": "strategy",
+      "assignee": "Elara",
+      "priority": "low",
+      "due": "2026-03-16"
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Retainer Prospect Qualification",
+      "detail": "Identify and research 5 potential Regenerative Leadership Retainer prospects from existing network who need ongoing strategic support"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Weekly Revenue Dashboard Update",
+      "detail": "Update pipeline tracking, client payment status, and 90-day revenue projections to monitor progress against $1M target"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "LaToya",
+      "action": "created",
+      "target": "Discovery Calls with Top 3 Prospects",
+      "detail": "Conduct Strategic Impact Execution qualification calls, assess Storm Scale category, and present Phase 1 framework"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "LaToya",
+      "action": "created",
+      "target": "Phase 2 Introduction Call with Client A",
+      "detail": "Present Phase 2 Systems Embedding opportunity based on Phase 1 progress, discuss $24K investment and timeline alignment"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Client B Transition Strategy",
+      "detail": "Review Client B engagement status, document deliverables completed, and prepare closeout process with potential retainer conversion assessment"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "LinkedIn Content Calendar - Infrastructure Theme",
+      "detail": "Create 3 LinkedIn posts focusing on nonprofit infrastructure challenges, include Storm Scale references and client success indicators"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Strategic Impact Execution Outreach Sequence",
+      "detail": "Draft personalized outreach messages for top 5 prospects focusing on capacity-building infrastructure and Storm Scale positioning"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Backfill Pipeline Prospect Research",
+      "detail": "Identify 15 qualified nonprofits matching ICP criteria ($750K-$3M budget, small teams, execution-ready) to replace ending $10K engagement revenue"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Client A Phase 2 Readiness Assessment",
+      "detail": "Evaluate Client A's progress at Month 2 mark, document Phase 1 wins, and prepare Phase 2 introduction framework for LaToya to present"
+    },
+    {
+      "timestamp": "2026-03-22T03:05:57.860Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Revenue Floor Analysis - Week of March 10",
+      "detail": "Calculate current monthly revenue run rate, identify gap to $15K floor, and model scenarios for closing the gap before Client B engagement ends"
+    },
     {
       "timestamp": "2026-03-22T02:45:45.328Z",
       "actor": "LaToya",
