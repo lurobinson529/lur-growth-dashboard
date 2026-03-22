@@ -6,6 +6,56 @@
 <title>LUR Growth — Command Center</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+  /* ---- AUTH GATE ---- */
+  .auth-gate {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: #103140;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+  }
+  .auth-gate.hidden { display: none; }
+  .auth-box {
+    background: white; border-radius: 16px; padding: 48px 40px;
+    width: 380px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .auth-box .logo-mark-auth {
+    width: 48px; height: 48px; display: grid;
+    grid-template-columns: 1fr 1fr; gap: 3px; margin: 0 auto 20px;
+  }
+  .auth-box .lpa-1 { background: #FD9D7D; border-radius: 4px; }
+  .auth-box .lpa-2 { background: #5BB9B0; border-radius: 4px; }
+  .auth-box .lpa-3 { background: #5B6D79; border-radius: 4px; }
+  .auth-box .lpa-4 { background: #3D9E95; border-radius: 4px; }
+  .auth-box h1 {
+    font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: 20px; color: #103140; margin-bottom: 6px;
+  }
+  .auth-box .auth-sub {
+    font-family: 'Poppins', sans-serif; font-size: 12px;
+    color: #8A9BA8; margin-bottom: 28px;
+  }
+  .auth-box input {
+    width: 100%; padding: 12px 16px; border: 2px solid #D8E4E8;
+    border-radius: 8px; font-family: 'Poppins', sans-serif;
+    font-size: 14px; outline: none; margin-bottom: 14px;
+    transition: border-color 0.2s;
+  }
+  .auth-box input:focus { border-color: #5BB9B0; }
+  .auth-box input.error { border-color: #FD9D7D; }
+  .auth-box button {
+    width: 100%; padding: 12px; background: #103140; color: white;
+    border: none; border-radius: 8px; font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 12px; letter-spacing: 1px;
+    text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+  }
+  .auth-box button:hover { background: #1a4a5e; }
+  .auth-error {
+    font-size: 11px; color: #FD9D7D; margin-top: 10px;
+    font-family: 'Poppins', sans-serif; display: none;
+  }
+  .app-wrapper { display: none; }
+  .app-wrapper.visible { display: block; }
+
   :root {
     --navy: #103140;
     --slate: #5B6D79;
@@ -569,6 +619,58 @@
 </head>
 <body>
 
+<!-- AUTH GATE -->
+<div class="auth-gate" id="authGate">
+  <div class="auth-box">
+    <div class="logo-mark-auth">
+      <div class="lpa-1"></div><div class="lpa-2"></div><div class="lpa-3"></div><div class="lpa-4"></div>
+    </div>
+    <h1>LUR Growth</h1>
+    <div class="auth-sub">Command Center — Authorized Access Only</div>
+    <form onsubmit="return handleLogin(event)">
+      <input type="password" id="authPassword" placeholder="Enter access code" autocomplete="off">
+      <button type="submit">Access Dashboard</button>
+    </form>
+    <div class="auth-error" id="authError">Incorrect access code. Please try again.</div>
+  </div>
+</div>
+
+<script>
+function handleLogin(e) {
+  e.preventDefault();
+  var input = document.getElementById('authPassword');
+  // Simple hash check so password isn't in plain text
+  var hash = 0;
+  var pw = input.value;
+  for (var i = 0; i < pw.length; i++) {
+    var chr = pw.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0;
+  }
+  // Hash of LURGrowth0529!
+  if (hash === 172099973) {
+    document.getElementById('authGate').classList.add('hidden');
+    document.getElementById('appWrapper').classList.add('visible');
+    sessionStorage.setItem('lur_auth', '1');
+  } else {
+    input.classList.add('error');
+    document.getElementById('authError').style.display = 'block';
+    setTimeout(function() {
+      input.classList.remove('error');
+      document.getElementById('authError').style.display = 'none';
+    }, 3000);
+  }
+  return false;
+}
+// Check if already authenticated this session
+if (sessionStorage.getItem('lur_auth') === '1') {
+  document.getElementById('authGate').classList.add('hidden');
+  document.getElementById('appWrapper').classList.add('visible');
+}
+</script>
+
+<div class="app-wrapper" id="appWrapper">
+
 <!-- HEADER -->
 <div class="header">
   <div class="header-brand">
@@ -612,6 +714,7 @@
   <button class="nav-tab" onclick="switchView('aios', this)" style="color:var(--coral);font-weight:700;">7T AIOS</button>
   <button class="nav-tab" onclick="switchView('revcenter', this)" style="color:var(--green);font-weight:700;">Revenue Center</button>
   <button class="nav-tab" onclick="switchView('ads', this)">Ads</button>
+  <button class="nav-tab" onclick="switchView('taskboard', this)" style="color:var(--coral);font-weight:700;">Task Board</button>
 </div>
 
 <!-- ================================================================
@@ -2650,6 +2753,93 @@
 </div>
 </div>
 
+<!-- ================================================================
+     VIEW: TASK BOARD
+================================================================ -->
+<div class="view" id="view-taskboard">
+<div class="main">
+
+  <!-- Task Board Header -->
+  <div style="background:var(--navy);border-radius:12px;padding:24px 28px;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:white;">Task Board</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:13px;color:var(--coral);margin-top:4px;">Elara &middot; AI Executive Assistant &middot; All Departments</div>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;text-align:center;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--coral);" id="taskCount-total">0</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">Total</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;text-align:center;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--teal);" id="taskCount-progress">0</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">In Progress</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;text-align:center;">
+          <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:var(--green);" id="taskCount-done">0</div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;">Completed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+    <button class="task-filter active" onclick="filterTasks('all', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:var(--navy);color:white;cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">All</button>
+    <button class="task-filter" onclick="filterTasks('strategy', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:white;color:var(--navy);cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">Strategy</button>
+    <button class="task-filter" onclick="filterTasks('business-development', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:white;color:var(--navy);cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">Business Dev</button>
+    <button class="task-filter" onclick="filterTasks('content', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:white;color:var(--navy);cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">Content</button>
+    <button class="task-filter" onclick="filterTasks('client-operations', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:white;color:var(--navy);cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">Client Ops</button>
+    <button class="task-filter" onclick="filterTasks('finance', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:white;color:var(--navy);cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">Finance</button>
+    <button class="task-filter" onclick="filterTasks('research', this)" style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:20px;border:1px solid var(--border-solid);background:white;color:var(--navy);cursor:pointer;text-transform:uppercase;letter-spacing:0.5px;">Research</button>
+  </div>
+
+  <!-- Kanban Board -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;min-height:500px;" id="kanbanBoard">
+
+    <!-- Backlog Column -->
+    <div style="background:var(--warm-gray);border-radius:12px;padding:16px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--slate);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--slate);"></span> Backlog <span id="col-backlog-count" style="background:rgba(91,109,121,0.15);padding:2px 8px;border-radius:10px;font-size:10px;">0</span>
+      </div>
+      <div id="col-backlog" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+
+    <!-- To Do Column -->
+    <div style="background:var(--warm-gray);border-radius:12px;padding:16px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--coral);"></span> To Do <span id="col-todo-count" style="background:rgba(253,157,125,0.2);padding:2px 8px;border-radius:10px;font-size:10px;">0</span>
+      </div>
+      <div id="col-todo" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+
+    <!-- In Progress Column -->
+    <div style="background:var(--warm-gray);border-radius:12px;padding:16px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--teal);"></span> In Progress <span id="col-progress-count" style="background:rgba(91,185,176,0.2);padding:2px 8px;border-radius:10px;font-size:10px;">0</span>
+      </div>
+      <div id="col-progress" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+
+    <!-- Done Column -->
+    <div style="background:var(--warm-gray);border-radius:12px;padding:16px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#2D6B4A;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--green);"></span> Done <span id="col-done-count" style="background:rgba(125,196,124,0.2);padding:2px 8px;border-radius:10px;font-size:10px;">0</span>
+      </div>
+      <div id="col-done" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+
+  </div>
+
+  <!-- Activity Feed -->
+  <div style="margin-top:24px;background:var(--white);border-radius:12px;border:1px solid var(--border-solid);padding:20px 24px;">
+    <div style="font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;">Recent Activity</div>
+    <div id="activityFeed" style="display:flex;flex-direction:column;gap:8px;"></div>
+  </div>
+
+</div>
+</div>
+
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-text">LUR Growth EA &mdash; Command Center &nbsp;&middot;&nbsp; Internal use only</div>
@@ -3502,6 +3692,140 @@ renderTracker();
 renderKeywords();
 renderMagnets();
 renderThemeRoadmap();
+
+// ── TASK BOARD ──────────────────────────────────────────────────────────────
+const TASK_DATA_URL = 'https://raw.githubusercontent.com/lurobinson529/lur-growth-dashboard/main/data/tasks.json';
+let allTasks = [];
+let currentFilter = 'all';
+
+// Default tasks if data file not yet available
+const defaultTasks = [
+  { id: 't1', title: 'Backfill ending $10K engagement', description: 'Client B engagement ending soon. Identify replacement or convert to retainer.', status: 'todo', department: 'business-development', assignee: 'Elara', priority: 'high', created: '2026-03-21', due: '2026-04-15' },
+  { id: 't2', title: 'Assess Client A for Phase 2 readiness', description: 'Client A is in Phase 1 at $24K. Check if Month 2 has passed for Phase 2 introduction.', status: 'todo', department: 'client-operations', assignee: 'Elara', priority: 'high', created: '2026-03-21', due: '2026-04-01' },
+  { id: 't3', title: 'Draft 3 LinkedIn posts for this week', description: 'Content lanes: strategy in people vs systems, quiet burnout, boards seeking stability.', status: 'progress', department: 'content', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-03-28' },
+  { id: 't4', title: 'Scan nonprofit news for outreach opportunities', description: 'Check Chronicle of Philanthropy, NonProfit Times, and sector news for leadership transitions, funding shifts, and org instability signals.', status: 'progress', department: 'research', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-03-22' },
+  { id: 't5', title: 'Build pipeline tracker spreadsheet', description: 'Create Google Sheet to track all prospects, stage, next action, and revenue potential.', status: 'backlog', department: 'business-development', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-03-31' },
+  { id: 't6', title: 'Update revenue projections for Q2', description: 'Recalculate monthly run rate with current 3 clients and project Q2 based on pipeline.', status: 'backlog', department: 'finance', assignee: 'Elara', priority: 'low', created: '2026-03-21', due: '2026-04-01' },
+  { id: 't7', title: 'Identify 5 ICP-matched nonprofits for outreach', description: '$750K-$3M nonprofits, small team, execution-ready but capacity constrained.', status: 'todo', department: 'business-development', assignee: 'Elara', priority: 'high', created: '2026-03-21', due: '2026-03-28' },
+  { id: 't8', title: 'Draft outreach email templates', description: 'Create 3 brand-aligned outreach templates for different ICP segments. No pitching. Relational tone.', status: 'backlog', department: 'business-development', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-04-05' },
+  { id: 't9', title: 'Set up weekly strategy review cadence', description: 'Configure Monday 10 AM automated strategy review in Discord and Slack.', status: 'done', department: 'strategy', assignee: 'Elara', priority: 'medium', created: '2026-03-21', completed: '2026-03-21' },
+  { id: 't10', title: 'Configure daily briefing automation', description: 'Set up 9 AM daily briefing in Discord and Slack with revenue snapshot and priorities.', status: 'done', department: 'strategy', assignee: 'Elara', priority: 'high', created: '2026-03-21', completed: '2026-03-21' }
+];
+
+async function loadTasks() {
+  try {
+    const response = await fetch(TASK_DATA_URL + '?t=' + Date.now());
+    if (response.ok) {
+      const data = await response.json();
+      allTasks = data.tasks || [];
+    } else {
+      allTasks = defaultTasks;
+    }
+  } catch(e) {
+    allTasks = defaultTasks;
+  }
+  renderTaskBoard();
+}
+
+function renderTaskBoard() {
+  const filtered = currentFilter === 'all' ? allTasks : allTasks.filter(t => t.department === currentFilter);
+
+  const backlog = filtered.filter(t => t.status === 'backlog');
+  const todo = filtered.filter(t => t.status === 'todo');
+  const progress = filtered.filter(t => t.status === 'progress');
+  const done = filtered.filter(t => t.status === 'done');
+
+  document.getElementById('col-backlog').innerHTML = backlog.map(renderTaskCard).join('');
+  document.getElementById('col-todo').innerHTML = todo.map(renderTaskCard).join('');
+  document.getElementById('col-progress').innerHTML = progress.map(renderTaskCard).join('');
+  document.getElementById('col-done').innerHTML = done.map(renderTaskCard).join('');
+
+  document.getElementById('col-backlog-count').textContent = backlog.length;
+  document.getElementById('col-todo-count').textContent = todo.length;
+  document.getElementById('col-progress-count').textContent = progress.length;
+  document.getElementById('col-done-count').textContent = done.length;
+
+  document.getElementById('taskCount-total').textContent = allTasks.length;
+  document.getElementById('taskCount-progress').textContent = allTasks.filter(t => t.status === 'progress').length;
+  document.getElementById('taskCount-done').textContent = allTasks.filter(t => t.status === 'done').length;
+
+  renderActivityFeed();
+}
+
+function renderTaskCard(task) {
+  const deptColors = {
+    'strategy': 'var(--navy)',
+    'business-development': 'var(--coral)',
+    'content': 'var(--teal)',
+    'client-operations': 'var(--teal-dark)',
+    'finance': 'var(--green)',
+    'research': 'var(--slate)'
+  };
+  const deptLabels = {
+    'strategy': 'Strategy',
+    'business-development': 'Business Dev',
+    'content': 'Content',
+    'client-operations': 'Client Ops',
+    'finance': 'Finance',
+    'research': 'Research'
+  };
+  const priorityColors = { high: 'var(--coral)', medium: 'var(--teal)', low: 'var(--slate)' };
+  const borderColor = deptColors[task.department] || 'var(--slate)';
+  const isDone = task.status === 'done';
+
+  return `
+    <div style="background:var(--white);border-radius:10px;padding:14px 16px;border:1px solid var(--border-solid);border-left:4px solid ${borderColor};${isDone ? 'opacity:0.7;' : ''}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+        <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--navy);${isDone ? 'text-decoration:line-through;' : ''}">${task.title}</div>
+        <span style="font-size:8px;font-weight:700;padding:2px 6px;border-radius:8px;background:${priorityColors[task.priority] || 'var(--slate)'};color:white;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;margin-left:6px;">${task.priority}</span>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;line-height:1.4;">${task.description}</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;background:${borderColor}15;color:${borderColor};text-transform:uppercase;letter-spacing:0.5px;">${deptLabels[task.department] || task.department}</span>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:10px;color:var(--text-muted);">${task.assignee}</span>
+          ${task.due ? '<span style="font-size:9px;color:var(--slate);background:var(--warm-gray);padding:1px 6px;border-radius:6px;">' + task.due + '</span>' : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderActivityFeed() {
+  const feed = document.getElementById('activityFeed');
+  if (!feed) return;
+
+  const recentTasks = [...allTasks]
+    .sort((a, b) => new Date(b.created) - new Date(a.created))
+    .slice(0, 8);
+
+  feed.innerHTML = recentTasks.map(t => {
+    const action = t.status === 'done' ? 'Completed' : t.status === 'progress' ? 'Started' : t.status === 'todo' ? 'Queued' : 'Created';
+    const actionColor = t.status === 'done' ? 'var(--green)' : t.status === 'progress' ? 'var(--teal)' : 'var(--coral)';
+    return `
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+        <span style="width:6px;height:6px;border-radius:50%;background:${actionColor};flex-shrink:0;"></span>
+        <span style="font-size:11px;color:var(--navy);flex:1;"><strong>${t.assignee}</strong> ${action.toLowerCase()}: ${t.title}</span>
+        <span style="font-size:10px;color:var(--text-muted);">${t.created}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function filterTasks(dept, btn) {
+  currentFilter = dept;
+  document.querySelectorAll('.task-filter').forEach(b => {
+    b.style.background = 'white';
+    b.style.color = 'var(--navy)';
+    b.classList.remove('active');
+  });
+  btn.style.background = 'var(--navy)';
+  btn.style.color = 'white';
+  btn.classList.add('active');
+  renderTaskBoard();
+}
+
+loadTasks();
 </script>
 
 <!-- ============ REVENUE COMMAND CENTER APP (React/htm) ============ -->
@@ -3734,6 +4058,8 @@ var root = document.getElementById('revenue-root');
 if(root) ReactDOM.createRoot(root).render(html`<${RevApp}/>`);
 })();
 </script>
+
+</div><!-- end app-wrapper -->
 
 </body>
 </html>
