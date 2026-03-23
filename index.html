@@ -3700,16 +3700,24 @@ let currentFilter = 'all';
 
 // Default tasks if data file not yet available
 const defaultTasks = [
-  { id: 't1', title: 'Backfill ending $10K engagement', description: 'Client B engagement ending soon. Identify replacement or convert to retainer.', status: 'todo', department: 'business-development', assignee: 'Elara', priority: 'high', created: '2026-03-21', due: '2026-04-15' },
-  { id: 't2', title: 'Assess Client A for Phase 2 readiness', description: 'Client A is in Phase 1 at $24K. Check if Month 2 has passed for Phase 2 introduction.', status: 'todo', department: 'client-operations', assignee: 'Elara', priority: 'high', created: '2026-03-21', due: '2026-04-01' },
-  { id: 't3', title: 'Draft 3 LinkedIn posts for this week', description: 'Content lanes: strategy in people vs systems, quiet burnout, boards seeking stability.', status: 'progress', department: 'content', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-03-28' },
-  { id: 't4', title: 'Scan nonprofit news for outreach opportunities', description: 'Check Chronicle of Philanthropy, NonProfit Times, and sector news for leadership transitions, funding shifts, and org instability signals.', status: 'progress', department: 'research', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-03-22' },
-  { id: 't5', title: 'Build pipeline tracker spreadsheet', description: 'Create Google Sheet to track all prospects, stage, next action, and revenue potential.', status: 'backlog', department: 'business-development', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-03-31' },
-  { id: 't6', title: 'Update revenue projections for Q2', description: 'Recalculate monthly run rate with current 3 clients and project Q2 based on pipeline.', status: 'backlog', department: 'finance', assignee: 'Elara', priority: 'low', created: '2026-03-21', due: '2026-04-01' },
-  { id: 't7', title: 'Identify 5 ICP-matched nonprofits for outreach', description: '$750K-$3M nonprofits, small team, execution-ready but capacity constrained.', status: 'todo', department: 'business-development', assignee: 'Elara', priority: 'high', created: '2026-03-21', due: '2026-03-28' },
-  { id: 't8', title: 'Draft outreach email templates', description: 'Create 3 brand-aligned outreach templates for different ICP segments. No pitching. Relational tone.', status: 'backlog', department: 'business-development', assignee: 'Elara', priority: 'medium', created: '2026-03-21', due: '2026-04-05' },
-  { id: 't9', title: 'Set up weekly strategy review cadence', description: 'Configure Monday 10 AM automated strategy review in Discord and Slack.', status: 'done', department: 'strategy', assignee: 'Elara', priority: 'medium', created: '2026-03-21', completed: '2026-03-21' },
-  { id: 't10', title: 'Configure daily briefing automation', description: 'Set up 9 AM daily briefing in Discord and Slack with revenue snapshot and priorities.', status: 'done', department: 'strategy', assignee: 'Elara', priority: 'high', created: '2026-03-21', completed: '2026-03-21' }
+  { id: 't1', title: 'Backfill ending $10K engagement', description: 'Client B ending soon. Pull GHL pipeline for qualified leads.', status: 'progress', department: 'business-development', assignee: 'Victor', priority: 'high', created: '2026-03-21', due: '2026-04-15' },
+  { id: 't2', title: 'Assess Client A for Phase 2 readiness', description: 'CIF in Phase 1 at $24K. Month 2 checkpoint for Phase 2.', status: 'progress', department: 'client-operations', assignee: 'Simone', priority: 'high', created: '2026-03-21', due: '2026-04-01' },
+  { id: 't3', title: 'Draft 3 LinkedIn posts for this week', description: 'Content lanes: strategy in people vs systems, quiet burnout, boards seeking stability.', status: 'progress', department: 'content', assignee: 'Avery', priority: 'medium', created: '2026-03-21', due: '2026-03-28' },
+  { id: 't4', title: 'Scan nonprofit news for outreach opportunities', description: 'Chronicle of Philanthropy, NonProfit Times for leadership transitions and funding shifts.', status: 'progress', department: 'research', assignee: 'Sage', priority: 'medium', created: '2026-03-21', due: '2026-03-28' },
+  { id: 't5', title: 'Build prospect pipeline tracker in GHL', description: 'Ensure GHL pipelines track all prospects with stage, next action, revenue potential.', status: 'progress', department: 'infrastructure', assignee: 'Dana', priority: 'medium', created: '2026-03-21', due: '2026-03-31' },
+  { id: 't6', title: 'Update revenue projections for Q2', description: 'Recalculate run rate with 3 clients. Project Q2 based on pipeline.', status: 'todo', department: 'strategy', assignee: 'Morgan', priority: 'high', created: '2026-03-21', due: '2026-04-01' },
+  { id: 't7', title: 'Identify 5 ICP-matched nonprofits', description: '$750K-$3M nonprofits, small team, execution-ready. Apollo + LinkedIn research.', status: 'progress', department: 'business-development', assignee: 'Victor', priority: 'high', created: '2026-03-21', due: '2026-03-28' },
+  { id: 't8', title: 'Draft outreach email templates', description: '3 brand-aligned templates for ICP segments. Relational tone.', status: 'todo', department: 'business-development', assignee: 'Victor', priority: 'medium', created: '2026-03-21', due: '2026-04-05' },
+  { id: 't12', title: 'Warm relationship follow-ups', description: 'Review email contacts. Flag day 10/14/21 follow-up triggers.', status: 'progress', department: 'trust-pipeline', assignee: 'Grace', priority: 'high', created: '2026-03-23', due: '2026-03-28' },
+  { id: 't13', title: 'CDS engagement wind-down plan', description: 'Client B offboarding checklist, case study capture, retainer proposal.', status: 'todo', department: 'client-operations', assignee: 'Simone', priority: 'high', created: '2026-03-23', due: '2026-04-01' },
+  { id: 't14', title: 'Contractor task briefs for John and Khairul', description: 'Write briefs for n8n workflows and technical systems work.', status: 'todo', department: 'infrastructure', assignee: 'Dana', priority: 'medium', created: '2026-03-23', due: '2026-03-28' },
+  { id: 't15', title: 'NPTA webinar date and LinkedIn push', description: 'Set firm date. Plan 3-week LinkedIn promotional sequence.', status: 'todo', department: 'content', assignee: 'Avery', priority: 'high', created: '2026-03-23', due: '2026-04-07' },
+  { id: 't19', title: 'Weekly revenue floor monitoring', description: 'Assess if $15K-$20K floor is at risk. Flag pipeline gaps.', status: 'todo', department: 'orchestrator', assignee: 'Morgan', priority: 'high', created: '2026-03-23', due: '2026-03-28' },
+  { id: 't20', title: 'RFP pipeline review and prioritization', description: 'Review 75 tracked RFPs. Score top prospects. Flag deadlines.', status: 'todo', department: 'business-development', assignee: 'Victor', priority: 'medium', created: '2026-03-23', due: '2026-03-31' },
+  { id: 't16', title: 'Connect Slack live intelligence to Elara', description: 'Elara now gets live GHL, Gmail, pipeline data in Slack.', status: 'done', department: 'infrastructure', assignee: 'Claude Code', priority: 'high', created: '2026-03-23', completed: '2026-03-23' },
+  { id: 't17', title: 'Fix Elara voice memo transcription', description: 'Rewrote Slack file download with 3-strategy fallback.', status: 'done', department: 'infrastructure', assignee: 'Claude Code', priority: 'high', created: '2026-03-23', completed: '2026-03-23' },
+  { id: 't10', title: 'Configure daily briefing automation', description: '9 AM daily briefing in Discord and Slack.', status: 'done', department: 'strategy', assignee: 'Elara', priority: 'high', created: '2026-03-21', completed: '2026-03-21' },
+  { id: 't11', title: 'Deploy Elara to Discord and Slack', description: 'Claude-powered executive AI bot with full command set.', status: 'done', department: 'strategy', assignee: 'Claude Code', priority: 'high', created: '2026-03-21', completed: '2026-03-21' }
 ];
 
 async function loadTasks() {
@@ -3759,7 +3767,10 @@ function renderTaskCard(task) {
     'content': 'var(--teal)',
     'client-operations': 'var(--teal-dark)',
     'finance': 'var(--green)',
-    'research': 'var(--slate)'
+    'research': 'var(--slate)',
+    'orchestrator': 'var(--navy)',
+    'infrastructure': '#8B5CF6',
+    'trust-pipeline': 'var(--coral)'
   };
   const deptLabels = {
     'strategy': 'Strategy',
@@ -3767,7 +3778,10 @@ function renderTaskCard(task) {
     'content': 'Content',
     'client-operations': 'Client Ops',
     'finance': 'Finance',
-    'research': 'Research'
+    'research': 'Research',
+    'orchestrator': 'Orchestrator',
+    'infrastructure': 'Infrastructure',
+    'trust-pipeline': 'Trust Pipeline'
   };
   const priorityColors = { high: 'var(--coral)', medium: 'var(--teal)', low: 'var(--slate)' };
   const borderColor = deptColors[task.department] || 'var(--slate)';
