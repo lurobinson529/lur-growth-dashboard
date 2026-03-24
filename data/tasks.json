@@ -443,7 +443,29 @@
       "due": "2026-03-19"
     }
   ],
+  "callIntelligence": {
+    "name": "Call Intelligence",
+    "role": "Call Analysis & Coaching",
+    "schedule": "Daily 10:30 AM ET",
+    "capabilities": [
+      "Filter calls to LUR Growth and NPTA only (skip NBN interviews)",
+      "Cross-reference attendees with GHL contacts and Gmail history",
+      "Score calls 1-10 on rapport, clarity, next steps, objection handling",
+      "Flag missed opportunities (referral asks, Phase 2 proposals)",
+      "Generate personalized follow-up messages tied to call moments",
+      "Provide coaching notes with specific improvement examples",
+      "Auto-assign follow-up tasks to Victor or Grace based on outcome"
+    ],
+    "status": "active"
+  },
   "activity": [
+    {
+      "timestamp": "2026-03-23T17:00:00Z",
+      "actor": "Claude Code",
+      "action": "deployed",
+      "target": "Call Intelligence Agent",
+      "detail": "Built and deployed call analysis engine. Filters LUR/NPTA calls, scores 1-10, generates follow-ups, auto-assigns tasks to Victor/Grace"
+    },
     {
       "timestamp": "2026-03-23T07:05:17.118Z",
       "actor": "Latoya",
