@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-23T07:05:17.119Z",
+  "lastUpdated": "2026-03-30T07:05:16.747Z",
   "updatedBy": "Elara",
   "tasks": [
     {
@@ -441,24 +441,153 @@
       "assignee": "Latoya",
       "priority": "medium",
       "due": "2026-03-19"
+    },
+    {
+      "id": "tmncufniiqd6",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "Assess Client B replacement pipeline urgency",
+      "description": "Client B engagement ends soon. Analyze current prospect pipeline to identify immediate closure candidates for April revenue backfill. Calculate revenue gap if no replacement secured.",
+      "department": "strategy",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-24"
+    },
+    {
+      "id": "tmncufniibdd",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "Evaluate Client A Phase 2 transition readiness",
+      "description": "Review Client A progress at Month 2 mark. Assess Phase 1 completion status and organizational readiness for Phase 2 Systems Embedding engagement.",
+      "department": "client-operations",
+      "assignee": "Latoya",
+      "priority": "high",
+      "due": "2026-03-26"
+    },
+    {
+      "id": "tmncufnii8h3",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "Outreach to 5 ICP prospects for April start",
+      "description": "Target $750K-$3M nonprofits showing execution readiness indicators. Focus on organizations with board investment capacity for immediate Phase 1 engagement.",
+      "department": "business-development",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-27"
+    },
+    {
+      "id": "tmncufnii08z",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "March revenue reconciliation and April projection",
+      "description": "Calculate March actuals against $15K floor target. Model April scenarios with/without Client B replacement. Update quarterly projection.",
+      "department": "finance",
+      "assignee": "Elara",
+      "priority": "high",
+      "due": "2026-03-25"
+    },
+    {
+      "id": "tmncufnij1wp",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "LinkedIn content series on nonprofit capacity building",
+      "description": "Create 3 posts addressing capacity constraints without stability infrastructure. Focus on board-level messaging that demonstrates strategic thinking.",
+      "department": "content",
+      "assignee": "Elara",
+      "priority": "medium",
+      "due": "2026-03-26"
+    },
+    {
+      "id": "tmncufnijnpk",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "Phase 2 service positioning refinement",
+      "description": "Define clear differentiation between Phase 1 and Phase 2 deliverables. Ensure seamless transition messaging for current Client A conversation.",
+      "department": "strategy",
+      "assignee": "Latoya",
+      "priority": "medium",
+      "due": "2026-03-28"
+    },
+    {
+      "id": "tmncufnijtn3",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "Retainer prospect identification research",
+      "description": "Research potential clients suitable for Regenerative Nonprofit Leadership Retainer model. Target organizations needing ongoing strategic support.",
+      "department": "research",
+      "assignee": "Elara",
+      "priority": "medium",
+      "due": "2026-03-28"
+    },
+    {
+      "id": "tmncufnijhwv",
+      "created": "2026-03-30",
+      "status": "todo",
+      "title": "Client C engagement health check",
+      "description": "Review Client C progress and satisfaction. Assess potential for extension or Phase 2 transition. Document lessons learned.",
+      "department": "client-operations",
+      "assignee": "Latoya",
+      "priority": "low",
+      "due": "2026-03-29"
     }
   ],
-  "callIntelligence": {
-    "name": "Call Intelligence",
-    "role": "Call Analysis & Coaching",
-    "schedule": "Daily 10:30 AM ET",
-    "capabilities": [
-      "Filter calls to LUR Growth and NPTA only (skip NBN interviews)",
-      "Cross-reference attendees with GHL contacts and Gmail history",
-      "Score calls 1-10 on rapport, clarity, next steps, objection handling",
-      "Flag missed opportunities (referral asks, Phase 2 proposals)",
-      "Generate personalized follow-up messages tied to call moments",
-      "Provide coaching notes with specific improvement examples",
-      "Auto-assign follow-up tasks to Victor or Grace based on outcome"
-    ],
-    "status": "active"
-  },
   "activity": [
+    {
+      "timestamp": "2026-03-30T07:05:16.747Z",
+      "actor": "Latoya",
+      "action": "created",
+      "target": "Client C engagement health check",
+      "detail": "Review Client C progress and satisfaction. Assess potential for extension or Phase 2 transition. Document lessons learned."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.747Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Retainer prospect identification research",
+      "detail": "Research potential clients suitable for Regenerative Nonprofit Leadership Retainer model. Target organizations needing ongoing strategic support."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.747Z",
+      "actor": "Latoya",
+      "action": "created",
+      "target": "Phase 2 service positioning refinement",
+      "detail": "Define clear differentiation between Phase 1 and Phase 2 deliverables. Ensure seamless transition messaging for current Client A conversation."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.747Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "LinkedIn content series on nonprofit capacity building",
+      "detail": "Create 3 posts addressing capacity constraints without stability infrastructure. Focus on board-level messaging that demonstrates strategic thinking."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.747Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "March revenue reconciliation and April projection",
+      "detail": "Calculate March actuals against $15K floor target. Model April scenarios with/without Client B replacement. Update quarterly projection."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.746Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Outreach to 5 ICP prospects for April start",
+      "detail": "Target $750K-$3M nonprofits showing execution readiness indicators. Focus on organizations with board investment capacity for immediate Phase 1 engagement."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.746Z",
+      "actor": "Latoya",
+      "action": "created",
+      "target": "Evaluate Client A Phase 2 transition readiness",
+      "detail": "Review Client A progress at Month 2 mark. Assess Phase 1 completion status and organizational readiness for Phase 2 Systems Embedding engagement."
+    },
+    {
+      "timestamp": "2026-03-30T07:05:16.746Z",
+      "actor": "Elara",
+      "action": "created",
+      "target": "Assess Client B replacement pipeline urgency",
+      "detail": "Client B engagement ends soon. Analyze current prospect pipeline to identify immediate closure candidates for April revenue backfill. Calculate revenue gap if no replacement secured."
+    },
     {
       "timestamp": "2026-03-23T17:00:00Z",
       "actor": "Claude Code",
